@@ -13,7 +13,7 @@ CenterWindow("A")
 
 Sleep,100
 
-runs := 50
+runs := 50 ;How many times you want this to loop. Multiply by 3 to get total SS spent.
 
 
 while(runs>0){
@@ -75,10 +75,11 @@ Refresh(){
    MouseClick left, 1000, 650
 }
 
+;reads the item at the given coords
 ReadItem(x,y){
    
    CoordMode, Pixel, Screen
-   hBitmap := HBitmapFromScreen(x, y, 350,40) ;coords are here
+   hBitmap := HBitmapFromScreen(x, y, 350,40) ;coords are here, 350 x 40 is the size of the window it's reading. 
 
    ;idk what this doess
    pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
@@ -87,9 +88,9 @@ ReadItem(x,y){
    ;save output as text
    text1 := ocr(pIRandomAccessStream, "en")
    
-   ;MsgBox % text1
+   ;MsgBox % text1 ; debug code, safe to delete
    
-   FileAppend, %text1% `n, test.txt ;debug, saves read text in a text document
+   ;FileAppend, %text1% `n, test.txt ;debug, saves read text in a text document. uncomment if you want to create a text document and see OCR accuracy
 
    ;action
    If InStr(text1, "Mystic"){
@@ -108,6 +109,7 @@ ReadItem(x,y){
    
 }
 
+;old code, probably safe to delete
 GetArea() {
    area := []
    StartSelection(area)
@@ -116,6 +118,7 @@ GetArea() {
    Return area
 }
 
+;buys the item at the given coords
 PurchaseItem(x,y){
    
    CoordMode,Mouse,Screen
@@ -127,18 +130,21 @@ PurchaseItem(x,y){
    MouseClick, left, targetx, targety
    sleep 300
    MouseClick, left, 1000, 750 ;THIS IS THE BUY CONFIRMATION
-   FileAppend ITEM PURCHASED, test.txt
+   ;FileAppend ITEM PURCHASED, test.txt; debug code, safe to delete. Uncomment if you want to see when the script buys bookmarks in the text file
    
    return
    
 }
    
-
-CenterWindow(WinTitle)
+;centers your window
+CenterWindow(WinTitle) 
 {
+   
     WinGetPos,,, Width, Height, %WinTitle%
     WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 }
+   
+   ;everything below here is for the OCR. edit at your own risk
    
 StartSelection(area) {
    handler := Func("Select").Bind(area)
