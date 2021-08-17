@@ -13,13 +13,16 @@ CenterWindow("A")
 
 Sleep,100
 
-runs := 50 ;How many times you want this to loop. Multiply by 3 to get total SS spent.
+runs := 500 ;How many times you want this to loop. Multiply by 3 to get total SS spent.
 
 
 while(runs>0){
 ;MsgBox Refreshing
 Refresh()
-Sleep 900
+
+while !ReadConfirm(1530,300,"Buy"){
+ Sleep 200  
+}
 
 ;Spot1
 ReadItem(1000,280)
@@ -68,11 +71,16 @@ Refresh(){
    
    CoordMode,Mouse,Screen
    
-   MouseClick left, 450, 900
+   while !ReadConfirm(1000,630,"Confirm"){
+      
+      MouseClick, left, 450, 900 ; CLICK REFRESH
+      sleep 400
+   }
    
-   Sleep 600
-   
-   MouseClick left, 1000, 650
+   while ReadConfirm(1000,630,"Confirm"){
+      MouseClick, left, 1000, 650 ;CLICK CONFIRM
+   sleep 400
+   }
 }
 
 ;reads the item at the given coords
@@ -95,19 +103,44 @@ ReadItem(x,y){
    ;action
    If InStr(text1, "Mystic"){
       ;MsgBox, Mystic found.
-      Sleep 100
+      Sleep 400
       PurchaseItem(x,y)
    }
       
    If InStr(text1, "Covenant"){
       ;MsgBox, Covenant found.
-      Sleep 100
+      Sleep 400
       PurchaseItem(x,y)
    }
    Sleep 230
    
    
 }
+
+ReadConfirm(x,y,z){
+;x is x
+;y is y
+; z is string to check
+
+;IF TEXT IS THERE, RETURNS TRUE
+
+   hBitmap := HBitmapFromScreen(x, y, 150,40) ;coords are here, 150 x 40 is the size of the window it's reading. 
+
+   ;idk what this doess
+   pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
+   DllCall("DeleteObject", "Ptr", hBitmap)
+
+   ;save output as text
+   text1 := ocr(pIRandomAccessStream, "en")
+   ;MsgBox % text1 ; debug check
+   
+   If InStr(text1,z){
+      return true
+   }else{
+      return false
+   }
+}
+
 
 ;old code, probably safe to delete
 GetArea() {
@@ -127,11 +160,21 @@ PurchaseItem(x,y){
    targety := y+35
    
    
-   MouseClick, left, targetx, targety
-   sleep 300
-   MouseClick, left, 1000, 750 ;THIS IS THE BUY CONFIRMATION
+   
+   while !ReadConfirm(735,710,"Cancel"){
+      MouseClick, left, targetx, targety ; CLICK PURCHASE
+      sleep 600
+   }
+   
+   while ReadConfirm(735,710,"Cancel"){
+      MouseClick, left, 1000, 750 ;THIS IS THE BUY CONFIRMATION
+      sleep 300
+   }
+   
    ;FileAppend ITEM PURCHASED, test.txt; debug code, safe to delete. Uncomment if you want to see when the script buys bookmarks in the text file
    
+   
+   sleep 100
    return
    
 }
