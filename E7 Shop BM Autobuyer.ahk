@@ -45,7 +45,7 @@ ReadItem(1000,780)
 ;---------------------------------------------------------------------------------------
 
 ;Scroll
-MouseClickDrag, left, 950, 800, 950, 540, 10
+MouseClickDrag, left, 1150, 800, 1150, 540, 10
 Sleep, 400
 
 ;---------------------------------------------------------------------------------------
@@ -124,7 +124,7 @@ ReadConfirm(x,y,z){
 
 ;IF TEXT IS THERE, RETURNS TRUE
 
-   hBitmap := HBitmapFromScreen(x, y, 150,40) ;coords are here, 150 x 40 is the size of the window it's reading. 
+   hBitmap := HBitmapFromScreen(x, y, 160,60) ;coords are here, 150 x 40 is the size of the window it's reading. 
 
    ;idk what this doess
    pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)

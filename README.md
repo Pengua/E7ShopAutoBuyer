@@ -14,14 +14,14 @@ Everything is coded via absolute locations so good luck if you don't have the sa
 
 # HOW TO:
 1. Install AutoHotkey (https://www.autohotkey.com/)
-2. Download the .AHK file "E7ShopBMAutobuyer.ahk" (https://github.com/Pengua/E7ShopAutoBuyer/releases/tag/V1.0) 
+2. Download the .AHK file "E7ShopBMAutobuyer.ahk" (https://github.com/Pengua/E7ShopAutoBuyer/releases/tag/V1.11) 
 3. Run the .AHK file (You should see the green 'H' in your system tray)
 4. Enter Garo's Secret Shop
 5. CTRL+ALT+S to run the script. (The emulator will auto-center on your screen)
 6. ESC to stop the script.
 
 ## Notes:
-- The script loops only 50 times, but is really easy to change.
+- The script loops only 500 times, but is really easy to change.
 - OCR is very accurate, just watch the script yourself if you don't trust it.
 - It shouldn't work on other resolutions because I'm too lazy to make it work that way, also I can't be bothered to figure it out. I'm sure someone else can.
 - Using a different emulator should be ok, but I only tested on Bluestacks 5
