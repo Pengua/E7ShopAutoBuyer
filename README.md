@@ -14,10 +14,10 @@ Everything is coded via absolute locations so good luck if you don't have the sa
 
 # HOW TO:
 1. Install AutoHotkey (https://www.autohotkey.com/)
-2. Download the .AHK file "E7ShopBMAutobuyer.ahk" (https://github.com/Pengua/E7ShopAutoBuyer/releases/tag/v1.11) 
+2. Download the .AHK file "E7ShopBMAutobuyer.ahk" (https://github.com/Pengua/E7ShopAutoBuyer/releases/tag/v1.12) 
 3. Run the .AHK file (You should see the green 'H' in your system tray)
 4. Enter Garo's Secret Shop
-5. CTRL+ALT+S to run the script. (The emulator will auto-center on your screen)
+5. CTRL+ALT+S to run the script. (The emulator will auto-center on your screen and resize your window)
 6. ESC to stop the script.
 
 ## Notes:
