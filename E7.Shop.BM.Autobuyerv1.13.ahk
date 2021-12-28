@@ -96,7 +96,7 @@ ReadItem(x,y){
    ;save output as text
    text1 := ocr(pIRandomAccessStream, "en")
    
-   MsgBox % text1 ; debug code, safe to delete
+   ;MsgBox % text1 ; debug code, safe to delete
    
    ;FileAppend, %text1% `n, test.txt ;debug, saves read text in a text document. uncomment if you want to create a text document and see OCR accuracy
 
