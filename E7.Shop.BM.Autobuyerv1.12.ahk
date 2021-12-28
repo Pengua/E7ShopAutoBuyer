@@ -25,38 +25,38 @@ while !ReadConfirm(1560,290,"Buy"){
 }
 
 ;Spot1
-ReadItem(980,260)
+ReadItem(990,260)
 
 ;---------------------------------------------------------------------------------------
 
 ;Spot2
-ReadItem(980,435)
+ReadItem(990,435)
 
 ;---------------------------------------------------------------------------------------
 
 ;Spot3
-ReadItem(980,610)
+ReadItem(990,610)
 
 ;---------------------------------------------------------------------------------------
 
 ;Spot4
-ReadItem(980,785)
+ReadItem(990,785)
 
 ;---------------------------------------------------------------------------------------
 
 ;Scroll
-MouseClickDrag, left, 1150, 800, 1150, 540, 10
+MouseClickDrag, left, 1150, 800, 1150, 535, 10
 Sleep, 400
 
 ;---------------------------------------------------------------------------------------
 
 ;Spot5
-ReadItem(980,700)
+ReadItem(990,700)
 
 ;---------------------------------------------------------------------------------------
 
 ;Spot6
-ReadItem(980,870)
+ReadItem(990,870)
 
 ;---------------------------------------------------------------------------------------
 Sleep 100
@@ -87,7 +87,7 @@ Refresh(){
 ReadItem(x,y){
    
    CoordMode, Pixel, Screen
-   hBitmap := HBitmapFromScreen(x, y, 350,40) ;coords are here, 350 x 40 is the size of the window it's reading. 
+   hBitmap := HBitmapFromScreen(x, y, 350,50) ;coords are here, 350 x 40 is the size of the window it's reading. 
 
    ;idk what this doess
    pIRandomAccessStream := HBitmapToRandomAccessStream(hBitmap)
@@ -96,7 +96,7 @@ ReadItem(x,y){
    ;save output as text
    text1 := ocr(pIRandomAccessStream, "en")
    
-   ;MsgBox % text1 ; debug code, safe to delete
+   MsgBox % text1 ; debug code, safe to delete
    
    ;FileAppend, %text1% `n, test.txt ;debug, saves read text in a text document. uncomment if you want to create a text document and see OCR accuracy
 
@@ -112,7 +112,7 @@ ReadItem(x,y){
       Sleep 400
       PurchaseItem(x,y)
    }
-   Sleep 230
+   Sleep 290
    
    
 }
