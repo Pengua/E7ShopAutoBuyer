@@ -9,12 +9,12 @@ Everything is coded via absolute locations so good luck if you don't have the sa
 # Requirements:
 - Enough gold to buy the bookmarks
 - Enough SS to refresh
-- Bluestacks running at 1600x900
+- Bluestacks running at 1600x900, 240dpi
 - 1920x1080 screen
 
 # HOW TO:
 1. Install AutoHotkey (https://www.autohotkey.com/)
-2. Download the .AHK file "E7ShopBMAutobuyer.ahk" (https://github.com/Pengua/E7ShopAutoBuyer/releases/tag/v1.12) 
+2. Download the .AHK file just above or at https://github.com/Pengua/E7ShopAutoBuyer/releases/tag/v1.13 
 3. Run the .AHK file (You should see the green 'H' in your system tray)
 4. Enter Garo's Secret Shop
 5. CTRL+ALT+S to run the script. (The emulator will auto-center on your screen and resize your window)
